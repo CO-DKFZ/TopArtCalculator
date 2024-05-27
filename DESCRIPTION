@@ -1,0 +1,38 @@
+Package: TopArtCalc
+Type: Package
+Title: Package for Calculation of TOP-ART Score for WGS/WES Sample
+Version: 1.2.1
+Date: 2024-05-21
+Authors@R: c(
+  person("Marco", "Rheinnecker", 
+    email="marco.rheinnecker@dkfz-heidelberg.de", 
+    role = c("aut", "cre"),
+    comment=c(ORCID="0009-0009-7181-3977")), 
+  person("Marc", "Ruebsam", 
+    role = c("aut")),
+  person("Daniel", "Huebschmann", 
+    role = c("aut")),  
+  person("Martina", "Froehlich", 
+    role = c("aut")),
+  person("Barbara", "Hutter", 
+    role = c("aut"))
+    )
+Imports: 
+    knitr,
+    GenomicRanges, 
+    IRanges, 
+    ZygosityPredictor, 
+    dplyr, 
+    stringr, 
+    stringi,
+    purrr,
+    tidyr,
+    utils
+License: MIT + file LICENSE
+Description: The TOP-ART calculator calculates the TOP-ART score. A score to assess the level of homologous recombination deficiency (HRD) in bulk NGS data of tumor with matched normal control.
+RoxygenNote: 7.3.1
+Encoding: UTF-8
+biocViews: BiomedicalInformatics
+Depends: 
+    R (>= 4.3.0)
+LazyData: false
