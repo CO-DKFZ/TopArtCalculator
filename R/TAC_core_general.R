@@ -70,14 +70,14 @@ estimate_signature_score <- function(yapsaTable=NULL,
 #' @keywords internal
 #' @return A List.
 #' @importFrom dplyr case_when
-estimate_rearrangement_score <- function(HRD, LST){
+estimate_rearrangement_score <- function(HRD_LOH, LST){
   rearrangement_score <- case_when(
-    HRD+LST>20 ~ 2,
-    HRD+LST>10 ~ 1,
+    HRD_LOH+LST>20 ~ 2,
+    HRD_LOH+LST>10 ~ 1,
     TRUE ~ 0
   )
-  message = paste("HRD:", HRD, "LST:", LST, "->", rearrangement_score, "pts")
-  return(list(rearrangement_score=rearrangement_score, P2_message=message, HRD=HRD, LST=LST))
+  message = paste("HRD_LOH:", HRD_LOH, "LST:", LST, "->", rearrangement_score, "pts")
+  return(list(rearrangement_score=rearrangement_score, P2_message=message, HRD_LOH=HRD_LOH, LST=LST))
 }
 
 #' calc germline score
@@ -429,7 +429,7 @@ get_metacols <- function(obj){
 #' @importFrom stringr str_match str_replace_all %>%
 check_input_data <- function(SAMPLE_ID=NULL,
                              seqMethod,
-                             HRD,
+                             HRD_LOH,
                              LST,
                              purity,
                              sex,
@@ -453,7 +453,7 @@ check_input_data <- function(SAMPLE_ID=NULL,
                              DEBUG=F,
                              FILTER_SOM_SMALL_VARS){
   . <- score <- gene <- width <- seqnames <- start <- ref <- alt <- NULL
-  complete_input <- c("seqMethod", "HRD", "LST", "purity", "sex", "bamDna",
+  complete_input <- c("seqMethod", "HRD_LOH", "LST", "purity", "sex", "bamDna",
                       "somCna", "geneModel", "yapsaTable") %>%
     as.character() %>%
     lapply(function(x){exists(as.character(x))}) %>%
@@ -478,8 +478,8 @@ check_input_data <- function(SAMPLE_ID=NULL,
       return(list(proceed=F))
     }
     
-    if(is.na(as.numeric(HRD))){
-      message(paste("input HRD must be numeric or a character that can be converted to numeric;\n  ", HRD, 
+    if(is.na(as.numeric(HRD_LOH))){
+      message(paste("input HRD_LOH must be numeric or a character that can be converted to numeric;\n  ", HRD_LOH, 
                     "can not be converted to numeric\n  aborting..."))
       return(list(proceed=F))
     }

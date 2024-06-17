@@ -79,7 +79,7 @@ load_germline_topart_genes <- function(){
 #' @param geneModel GRanges object containing the gene-annoattion of 
 #' the used reference genome with metadata column of the gene name (gene)
 #' @param seqMethod charcter: either "WGS" or "WES"
-#' @param HRD number of LOH events (wait for final text in manuscript)
+#' @param HRD_LOH number of LOH events (wait for final text in manuscript)
 #' @param LST number of large scale state transition events
 #' @param bamDna path to bam-file
 #' @param bamRna optional; path to rna file (bam format)
@@ -150,7 +150,7 @@ load_germline_topart_genes <- function(){
 #' @export
 calculate_TOP_ART_score <- function(SAMPLE_ID=NULL,
                                     seqMethod,
-                                    HRD,
+                                    HRD_LOH,
                                     LST,
                                     purity,
                                     ploidy,
@@ -192,7 +192,7 @@ calculate_TOP_ART_score <- function(SAMPLE_ID=NULL,
   
   adapted_input <- check_input_data(SAMPLE_ID,
                                     seqMethod,
-                                    HRD,
+                                    HRD_LOH,
                                     LST,
                                     purity,
                                     sex,
@@ -262,7 +262,7 @@ calculate_TOP_ART_score <- function(SAMPLE_ID=NULL,
         )
     p2_criterion <- 
       estimate_rearrangement_score(
-        as.numeric(HRD), 
+        as.numeric(HRD_LOH), 
         as.numeric(LST)
         )
     total_score <- 

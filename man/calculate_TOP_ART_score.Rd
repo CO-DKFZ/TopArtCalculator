@@ -7,7 +7,7 @@
 calculate_TOP_ART_score(
   SAMPLE_ID = NULL,
   seqMethod,
-  HRD,
+  HRD_LOH,
   LST,
   purity,
   ploidy,
@@ -39,7 +39,7 @@ calculate_TOP_ART_score(
 
 \item{seqMethod}{charcter: either "WGS" or "WES"}
 
-\item{HRD}{number of LOH events (wait for final text in manuscript)}
+\item{HRD_LOH}{number of LOH events (wait for final text in manuscript)}
 
 \item{LST}{number of large scale state transition events}
 

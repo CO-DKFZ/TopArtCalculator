@@ -4,7 +4,7 @@
 \alias{estimate_rearrangement_score}
 \title{calc rearrangement score}
 \usage{
-estimate_rearrangement_score(HRD, LST)
+estimate_rearrangement_score(HRD_LOH, LST)
 }
 \value{
 A List.
