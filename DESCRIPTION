@@ -1,7 +1,7 @@
 Package: TopArtCalc
 Type: Package
 Title: Package for Calculation of TOP-ART Score for WGS/WES Sample
-Version: 1.2.1
+Version: 1.2.2
 Date: 2024-05-21
 Authors@R: c(
   person("Marco", "Rheinnecker", 

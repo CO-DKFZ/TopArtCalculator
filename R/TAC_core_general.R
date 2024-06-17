@@ -214,11 +214,12 @@ estimate_somatic_score <- function(somCna,
     somatic_score <- max(corr_eval_per_gene$score)
   }
   return(list(somatic_score=somatic_score, 
-              G1_tbl_eval_per_variant=pred_zyg$eval_per_variant,
+              #G1_tbl_eval_per_variant=pred_zyg$eval_per_variant,
               G1_tbl_eval_per_gene=corr_eval_per_gene,
-              G1_tbl_phasing_info=pred_zyg$phasing_info,
-              uncovered_variants=pred_zyg$uncovered_input,
-              ext_snp_phasing=pred_zyg$detailed_phasing_info
+              #G1_tbl_phasing_info=pred_zyg$phasing_info,
+              #uncovered_variants=pred_zyg$uncovered_input,
+              #ext_snp_phasing=pred_zyg$detailed_phasing_info,
+              ZygosityPredictor_result=pred_zyg
               #read_detail=pred_zyg$readpair_info#,
               #detailed_genewise_output=detailed_genewise_output
   )

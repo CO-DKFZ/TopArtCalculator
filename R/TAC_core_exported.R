@@ -286,28 +286,31 @@ calculate_TOP_ART_score <- function(SAMPLE_ID=NULL,
     output_message <- 
       create_output_message(
         overview, 
-        g1_criterion$G1_tbl_eval_per_variant, 
+        g1_criterion$ZygosityPredictor_result$eval_per_variant, 
         g1_criterion$G1_tbl_eval_per_gene, 
         g2_criterion$G2_message,
-        g1_criterion$G1_tbl_phasing_info 
+        g1_criterion$ZygosityPredictor_result$phasing_info 
     )
     ### data export
     if(PRINT_OUTPUT==T){
       cat(output_message)
     }
     return(
-      list(
-        total_score=total_score, 
-        output_message=output_message,
-        overview=overview,
-        G1_eval_per_variant=g1_criterion$G1_tbl_eval_per_variant, 
-        G1_eval_per_gene=g1_criterion$G1_tbl_eval_per_gene, 
-        G2_message=g2_criterion$G2_message,
-        G1_phasing_info=g1_criterion$G1_tbl_phasing_info,
-        uncovered_input=g1_criterion$uncovered_variants,
-        ext_snp_phasing=g1_criterion$ext_snp_phasing,
-        read_detail=g1_criterion$read_detail
-        )
+      append(
+        list(
+          total_score=total_score, 
+          output_message=output_message,
+          overview=overview,
+          #G1_eval_per_variant=g1_criterion$G1_tbl_eval_per_variant, 
+          #G1_eval_per_gene=g1_criterion$G1_tbl_eval_per_gene, 
+          G2_message=g2_criterion$G2_message,
+          #G1_phasing_info=g1_criterion$G1_tbl_phasing_info,
+          uncovered_input=g1_criterion$uncovered_variants,
+          ext_snp_phasing=g1_criterion$ext_snp_phasing,
+          read_detail=g1_criterion$read_detail
+        ),
+        g1_criterion)
+        
     )
   } else {
     message("cannot calculate TOP-ART score")
