@@ -26,12 +26,12 @@ Before TOP-ART calculator can be used, the following upstream steps need to be p
   - Annotation of **allele-frequency**, **alternative base**, **reference base**
   - Annotation of **gene name** the variant is located in (in line with gene model used for all annotations of input data)
   - Information about **Pathogenicity** in ACMG classification (1-5; benign, likely benign, uncertain significance, likely pathogenic, pathogenic) (https://github.com/NagaComBio/CharGer)
-* calling of mutational signature 3 ([Alexandrov et al.](https://www.sciencedirect.com/science/article/pii/S0959437X13001639?via%3Dihub))
-  - Info about confidence interval (Recommendation: [YAPSA](https://bioconductor.org/packages/YAPSA.html) package ([Hübschmann et al.](https://onlinelibrary.wiley.com/doi/10.1002/gcc.22918))
+* calling of mutational signature 3 ([Alexandrov et al., 2014](https://www.sciencedirect.com/science/article/pii/S0959437X13001639?via%3Dihub))
+  - Info about confidence interval (Recommendation: [YAPSA](https://bioconductor.org/packages/YAPSA.html) R-package ([Hübschmann et al., 2020](https://onlinelibrary.wiley.com/doi/10.1002/gcc.22918))
   
 ## Example
 
-The tool mainly relies on the [ZygosityPredictor](https://bioconductor.org/packages/ZygosityPredictor.html) R-package ([Rheinnecker et al.](https://academic.oup.com/bioinformaticsadvances/article/4/1/vbae017/7601458)).
+The tool mainly relies on the [ZygosityPredictor](https://bioconductor.org/packages/ZygosityPredictor.html) R-package ([Rheinnecker et al., 2024](https://academic.oup.com/bioinformaticsadvances/article/4/1/vbae017/7601458)).
 Some inputs are therefore inherited and require the same format as if used
 for ZygosityPredictor itself. The following example uses the minimum required input to run.
 If applicable, additional input files can be provided (RNA-seq, haploblocks, SNPs, see [ZygosityPredictor vignette](https://bioconductor.org/packages/release/bioc/vignettes/ZygosityPredictor/inst/doc/Usage.html)) to
